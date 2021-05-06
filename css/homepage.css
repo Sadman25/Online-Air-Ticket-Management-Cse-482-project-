@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/background.jpg');
+    /* background-image: url("../images/background.jpg"); */
+    color: white;
+}
+
+#full{
+    margin-top: 10%;
+    
+}
+.container h3{
+    margin-top: 5%;
+}
+
+button{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#form{
+    background:#2C3E50;
+    color:white;
+}
+
+#form input{
+    margin-top: 2%;
+}
