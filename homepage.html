@@ -8,6 +8,7 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="css/homepage.css"/>
+    <script src="js/moktadir.js"></script>
 </head>
 <body>    
     <div class="container" id="full">
@@ -28,13 +29,37 @@
                 <div class="container">
                     <h3>Book your tickets today </h3>
                     <div class="booking-form">
-                        <form>
+                        <form autocomplete="off">
+                            <div class="form-checkbox">
+                                <label for="roundtrip">
+                                    <input type="radio" id="roundtrip" name="trip_type">
+                                    <span></span>Roundtrip
+                                </label>
+                                <label for="one-way">
+                                    <input type="radio" id="one-way" name="trip_type">
+                                    <span></span>One way
+                                </label>
+                                <label for="multi-city">
+                                    <input type="radio" id="multi-city" name="trip_type">
+                                    <span></span>Multi-City
+                                </label>
+                            </div>
                             <div class="form-group">
                                 <span class="form-label">Your Destination</span>
-                                <input class="form-control" type="text"
-                                    placeholder="Enter a destination or hotel name">
+                                <div class="autocomplete">
+                                    <input id="myInput" class="form-control" type="text"
+                                    placeholder="Fly to Airport">
+                                </div>
                             </div>
                             <div class="row">
+                                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <span class="form-label">From</span>
+                                        <input class="form-control" type="text"
+                                        placeholder="Fly from Airport">
+                                    </div>
+                                </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <span class="form-label">Check In</span>
@@ -95,13 +120,16 @@
             
         </div>
     </div>
-
+    <script>
+        
+    </script>
 
     
     
 
 
 
+<script src="js/moktadir.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
