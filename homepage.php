@@ -14,14 +14,35 @@
     <link type="text/css" rel="stylesheet" href="css/homepage.css"/>
     <script src="js/moktadir.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 
-    <script>
-
-
-    </script>
 </head>
-<body>    
+<body> 
+    
+        <div class="row" >
+        <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" width="30" height="30" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="homepage.html">Home </a>
+                        <a class="nav-item nav-link" href="profile.html">Profile</a>
+                        <a class="nav-item nav-link" href="#">Contacts</a>
+                        <a class="nav-item nav-link" href="login.html">Log Out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
     <div class="container" id="full">
         
         <div class="row">
@@ -73,16 +94,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <div class="form-group">
                                         <span class="form-label">Check In</span>
-                                        <input class="form-control" type="date" required>
+                                        <input id="CI" class="form-control" type="date">
                                     </div>
                                 </div>
-                                <div id="hideco" class="col-sm-6">
+                                <div id="hideco" class="col-sm-8">
                                     <div class="form-group">
                                         <span class="form-label">Check out</span>
-                                        <input class="form-control" type="date" required>
+                                        <input id="CO" class="form-control" type="date" required>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +133,8 @@
                                 </div>
                             </div>
                             <div class="form-btn">                                
-                                <button id="myBtn" class="submit-btn">Check availability</button>
+                                <!-- <button id="myBtn" type="submit" class="submit-btn">Check availability</button> -->
+                                <input name="myBtn"  id="myBtn" value="Check availability" disabled />
                        
                                 <div class="form-text"><a href="#">Create an account</a> to book your tickets</div>
                                 <p>Already have an account?? <a href="#">Login Here</a></p>
@@ -165,6 +187,35 @@
     </div>
     <script>
         
+$("#myInput").keyup(function(event) {
+  validateInputs();
+});
+
+$("#myInput2").keyup(function(event) {
+  validateInputs();
+});
+
+$("#CI").keyup(function(event) {
+  validateInputs();
+});
+
+// $("#CO").keyup(function(event) {
+//   validateInputs();
+// });
+
+function validateInputs(){
+  var disableButton = false;
+
+  var val1 = $("#myInput").val();
+  var val2 = $("#myInput2").val();
+  var val3 = $("#CI").val();
+//   var val4 = $("#CO").val();
+
+  if(val1.length == 0 || val2.length == 0 || val3.length == 0 )
+      disableButton = true;
+
+  $('#myBtn').attr('disabled', disableButton);
+}
     </script>
 
     
