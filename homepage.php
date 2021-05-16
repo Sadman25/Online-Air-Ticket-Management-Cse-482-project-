@@ -1,12 +1,13 @@
-<?php
-    $connect = mysqli_connect("localhost", "root", "", "reservation");
-    $query="select * from airlines";
-    $result=mysqli_query($connect,$query);
+<?php 
+    // include('Connection.php');
+    // $dest=$_POST['destination'];
 
-
+    
+    // // $query="select * from airlines where destination='$destination'";
+    // $query = "SELECT * FROM airlines WHERE destination = '".$dest."'";  
+    // $result=mysqli_query($conn,$query);
+    // $count= mysqli_num_rows($result);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,64 +17,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="css/homepage.css" />
-   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/homepage.css"/>
+    <script src="js/moktadir.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 
+    <script>
 
 
+    </script>
 </head>
-
-<body>
-<div id="myModal" class="modal fade">  
-                                <div class="modal-dialog">  
-                                    <div class="modal-content">  
-                                            <div class="modal-header">  
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>  
-                                                <h4 class="modal-title">Employee Details</h4>  
-                                            </div>  
-                                            <div class="modal-body">
-                                        <?php 
-                                            if($count_tickets > 0){
-                                                while($rows_count_tickets = mysqli_fetch_array($result_tickets)){
-                                        ?>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                            <h3>Destination</h3>
-                                                <h5><?php echo $rows_count_tickets['to'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                                <h3>From</h3>
-                                                <h5><?php echo $rows_count_tickets['from'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                            <h3>Time</h3>
-                                            <h5><?php echo $rows_count_tickets['time'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                                <h3>Seat Available</h3>
-                                                <h5><?php echo $rows_count_tickets['available_seats'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                                <h3>Fare</h3>
-                                                <h5><?php echo $rows_count_tickets['fare'];?></h5>
-                                            </div>
-                                        <?php
-                                                }
-                                            }
-                                        ?>
-                                    
-                                    </div>
-                                            <div class="modal-footer">  
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
-                                            </div>  
-                                    </div>  
-                                </div>  
-                    </div>  
-    <div class="row">
+<body> 
+    
+        <div class="row" >
         <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">
@@ -97,7 +55,7 @@
 
 
     <div class="container" id="full">
-
+        
         <div class="row">
             <div class="col-md-7 col-md-push-5">
                 <div class="booking-cta">
@@ -114,7 +72,7 @@
                 <div class="container">
                     <h3>Book your tickets today </h3>
                     <div class="booking-form">
-                        <form autocomplete="off">
+                        <form action="homepage2.php" method="POST"  autocomplete="off">
                             <div class="form-checkbox">
                                 <label for="roundtrip">
                                     <input type="radio" id="roundtrip" name="trip_type">
@@ -133,39 +91,39 @@
                                 <span class="form-label">Your Destination</span>
                                 <div class="autocomplete">
                                     <input id="myInput" name="destination" class="form-control" type="text"
-                                        placeholder="Fly to Airport">
+                                    placeholder="Fly to Airport">
                                 </div>
                             </div>
                             <div class="row">
-
+                                
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <span class="form-label">From</span>
                                         <div class="autocomplete">
                                             <input id="myInput2" name="from" class="form-control" type="text"
-                                                placeholder="Fly from Airport">
+                                            placeholder="Fly from Airport">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-8">
+                                <div class="col-sm-6">
                                     <div class="form-group">
                                         <span class="form-label">Check In</span>
-                                        <input id="CI" class="form-control" type="date">
+                                        <input class="form-control" name="CIdate" type="date" required>
                                     </div>
                                 </div>
-                                <div id="hideco" class="col-sm-8">
+                                <div id="hideco" class="col-sm-6">
                                     <div class="form-group">
                                         <span class="form-label">Check out</span>
-                                        <input id="CO" class="form-control" type="date">
+                                        <input class="form-control" name="COdate" type="date" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-
+                               
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <span class="form-label">Adults</span>
-                                        <select class="form-control">
+                                        <select name="adult_no" class="form-control">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -176,7 +134,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <span class="form-label">Children</span>
-                                        <select class="form-control">
+                                        <select name="child_no" class="form-control">
                                             <option>0</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -185,91 +143,81 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-btn">
+                            <div class="form-btn">                                
                                 <!-- <button id="myBtn" type="submit" class="submit-btn">Check availability</button> -->
-                                <input id="myBtn" name="submit" type="submit" value="Check availability" />
-
+                                <input id="myBtn" class="submit-btn" type="submit" value="Check availability" >
                                 <div class="form-text"><a href="#">Create an account</a> to book your tickets</div>
                                 <p>Already have an account?? <a href="#">Login Here</a></p>
                             </div>
+                            <div class="modal">
 
-                            
-
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h2>Modal Header</h2>
+                                    <span class="close">&times;</span>
+                                  
+                                  </div>
+                                  <div id="reserve" class="modal-body">
+                                        <?php 
+                                            if($count > 0){
+                                                while($rows_count_tickets = mysqli_fetch_array($result)){
+                                        ?>
+                                            <div style="display: inline-block;" class="col-md-2">
+                                            <h3>Destination</h3>
+                                                <h5><?php echo $rows_count_tickets['destination'];?></h5>
+                                            </div>
+                                            <div style="display: inline-block;" class="col-md-2">
+                                                <h3>From</h3>
+                                                <h5><?php echo $rows_count_tickets['from'];?></h5>
+                                            </div>
+                                            <div style="display: inline-block;" class="col-md-2">
+                                            <h3>Time</h3>
+                                            <h5><?php echo $rows_count_tickets['flight_time'];?></h5>
+                                            </div>
+                                            <div style="display: inline-block;" class="col-md-2">
+                                                <h3>Seat Available</h3>
+                                                <h5><?php echo $rows_count_tickets['total_seat'];?></h5>
+                                            </div>
+                                            <div style="display: inline-block;" class="col-md-2">
+                                                <h3>Fare</h3>
+                                                <h5><?php echo $rows_count_tickets['fare'];?></h5>
+                                            </div>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
+                                    
+                                    </div>
+                                  <div class="modal-footer">
+                                    <!-- <h3>Modal Footer</h3> -->
+                                  </div>
+                                </div>
+                              
+                              </div>
                         </form>
-                        
+                    
                     </div>
-                </div>
+                </div>                
             </div>
-
+            
         </div>
     </div>
-    
     <script>
-        $("#myInput").keyup(function (event) {
-            validateInputs();
-        });
-
-        $("#myInput2").keyup(function (event) {
-            validateInputs();
-        });
-
-        $("#CI").keyup(function (event) {
-            validateInputs();
-        });
-
-        function validateInputs() {
-            var disableButton = false;
-
-            var val1 = $("#myInput").val();
-            var val2 = $("#myInput2").val();
-            var val3 = $("#CI").val();
-            //   var val4 = $("#CO").val();
-
-            if (val1.length == 0 || val2.length == 0 || val3.length == 0)
-                disableButton = true;
-
-            $('#myBtn').attr('disabled', disableButton);
-        }
+        
     </script>
 
+    
+    
 
 
 
+<script src="js/moktadir.js"></script>
 
-
-
-    <script src="js/moktadir.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
-<!-- <script>
-    $(document).ready(function () {
-        $('#').click(function () {
-            var destination = $('#myInput').val();
-            $.ajax({
-                url: "select.php",
-                method: "post",
-                data: {
-                    destination: destination
-                },
-                success: function (data) {
-                    $('#reserve').html(data);
-                    $('#myModal').modal("show");
-                }
-            });
-        });
-    });
-</script> -->
-
-
 
