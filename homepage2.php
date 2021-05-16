@@ -1,20 +1,28 @@
 <?php 
     include('Connection.php');
     // $dest=$_POST['destination'];
+    
+   
+
+
+
+
     $dest = isset($_POST['destination']) ? $_POST['destination'] : "";
+    $from= isset($_POST['from']) ? $_POST['from'] : "";
     // $query="select * from airlines where destination='$destination'";
-    $query = "SELECT * FROM airlines WHERE destination = '".$dest."'";  
+    $query = "SELECT * FROM airlines WHERE destination = '".$dest."' AND depart = '".$from."'";  
     $result=mysqli_query($conn,$query);
     $count= mysqli_num_rows($result);
 
+    session_start();
 
-
-    $trip_type = isset($_POST['trip_type']) ? $_POST['trip_type'] : "";
-    $from=isset($_POST['from']) ? $_POST['from'] : "";
-    $CIdate=isset($_POST['CIdate']) ? $_POST['CIdate'] : "";
-    $COdate=isset($_POST['COdate']) ? $_POST['COdate'] : "";
-    $adult_no=isset($_POST['adult_no']) ? $_POST['adult_no'] : "";
-    $child_no=isset($_POST['child_no']) ? $_POST['child_no'] : "";
+    $_SESSION['trip_type'] =$_POST['trip_type'];
+    $_SESSION['from']=$_POST['from'];
+    $_SESSION['CIdate']=$_POST['CIdate'];
+    $_SESSION['COdate']=$_POST['COdate'];
+    $_SESSION['adult_no']=$_POST['adult_no'];
+    $_SESSION['child_no']=$_POST['child_no'];
+   
 
 ?>
 
@@ -73,12 +81,12 @@
                                         ?>
                                             <div style="display: inline-block;" class="col-md-2">
                                             <h3>Destination</h3>
-                                            <input type="hidden" name="destination" value="<?php echo $_POST['destination']; ?>">
+                                           
                                                 <h5><?php echo $rows_count_tickets['destination'];?></h5>
                                             </div>
                                             <div style="display: inline-block;" class="col-md-2">
                                                 <h3>From</h3>
-                                                <h5><?php echo $rows_count_tickets['from'];?></h5>
+                                                <h5><?php echo $rows_count_tickets['depart'];?></h5>
                                             </div>
                                             <div style="display: inline-block;" class="col-md-2">
                                             <h3>Time</h3>
@@ -92,12 +100,17 @@
                                                 <h3>Fare</h3>
                                                 <h5><?php echo $rows_count_tickets['fare'];?></h5>
                                             </div>
+                                       
+                                        <form action="payment.php" method="post">
+                                        <input type="hidden" name="air_id" value="<?php echo $rows_count_tickets['id'];?>">
+                                            <button type="submit" class="btn btn-primary">Buy it</button>
+                                        </form>
+                                      
+                               
                                         <?php
                                                 }
                                             }
                                         ?>
-                                <button type="button" class="btn btn-primary">Buy it</button>
-                   
                 </div>
             </div>
          

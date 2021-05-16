@@ -1,4 +1,34 @@
+<?php
+        include('Connection.php');
+// if(isset($_POST['submit'])){
+    // $trip_type =$_POST['trip_type'];
+    // $from=$_POST['from'];
+    // $CIdate=$_POST['CIdate'];
+    // $COdate=$_POST['COdate'];
+    // $adult_no=$_POST['adult_no'];
+    // $child_no=$_POST['child_no'];
+    //  $air_id=$rows_count_tickets['id'];
+    //     $query1="INSERT INTO temp_data (trip_type,CIdate,COdate,adult,child,air_id) VALUES 
+    //     ('{$trip_type}','{$CIdate}','{$COdate}','{$adult_no}','{$child_no}','{$air_id}');";
 
+    //     $performQuery=mysqli_query($conn, $query1);
+
+// }
+  
+
+    session_start();
+    $air_id=$_POST['air_id'];
+    $trip_type =$_SESSION['trip_type'];
+    $froms=$_SESSION['from'];
+    $CIdate=$_SESSION['CIdate'];
+    $COdate=$_SESSION['COdate'];
+    
+    echo $CIdate;
+    echo ($froms);
+    echo ($air_id);
+
+   
+     ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +87,7 @@
                             $selectquery = " select * from reservation ORDER BY ID DESC LIMIT 1 ";
                             
 
-                            $query = mysqli_query($con, $selectquery);
+                            $query = mysqli_query($conn, $selectquery);
 
                             
 
@@ -197,3 +227,4 @@
 </body>
 
 </html>
+

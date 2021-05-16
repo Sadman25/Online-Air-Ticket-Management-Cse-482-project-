@@ -1,5 +1,5 @@
 <?php 
-    // include('Connection.php');
+     include('Connection.php');
     // $dest=$_POST['destination'];
 
     
@@ -75,12 +75,12 @@
                         <form action="homepage2.php" method="POST"  autocomplete="off">
                             <div class="form-checkbox">
                                 <label for="roundtrip">
-                                    <input type="radio" id="roundtrip" name="trip_type">
-                                    <span></span>Roundtrip
+                                    <input type="radio" id="roundtrip" name="trip_type" value="roundtrip">
+                                    <label for="roundtrip">Roundtrip</label>
                                 </label>
                                 <label for="one-way">
-                                    <input type="radio" id="one-way" name="trip_type">
-                                    <span></span>One way
+                                    <input type="radio" id="one-way" name="trip_type" value="one-way">
+                                    <label for="one-way">One-way</label>
                                 </label>
                                 <!-- <label for="multi-city">
                                     <input type="radio" id="multi-city" name="trip_type">
@@ -145,7 +145,7 @@
                             </div>
                             <div class="form-btn">                                
                                 <!-- <button id="myBtn" type="submit" class="submit-btn">Check availability</button> -->
-                                <input id="myBtn" class="submit-btn" type="submit" value="Check availability" >
+                                <input id="myBtn" class="submit-btn" name="submit" type="submit" value="Check availability" >
                                 <div class="form-text"><a href="#">Create an account</a> to book your tickets</div>
                                 <p>Already have an account?? <a href="#">Login Here</a></p>
                             </div>
@@ -220,4 +220,3 @@
 </body>
 
 </html>
-
