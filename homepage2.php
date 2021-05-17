@@ -18,6 +18,21 @@
     $_SESSION['child_no']=$_POST['child_no'];
    
 
+    $loggedIn = $_SESSION['loggedIn'];
+
+	if($loggedIn != 1)
+	{
+		echo '<script type="text/javascript"> alert ("Please sign in first")</script>';
+		echo "<script> location.href='login.html'; </script>";
+	}
+	else
+	{
+	$userID = $_SESSION['userID'];
+    $query3 = "SELECT * FROM users WHERE id = '".$userID."'";
+    $results=mysqli_query($conn,$query3);
+    $counts= mysqli_num_rows($results);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +112,22 @@
                                        
                                         <form action="payment.php" method="post">
                                         <input type="hidden" name="air_id" value="<?php echo $rows_count_tickets['id'];?>">
+
+                                        <?php
+                                            if($loggedIn != 1)
+                                            {
+                                                echo '<script type="text/javascript"> alert ("Please sign in first")</script>';
+                                                echo "<script> location.href='login.html'; </script>";
+                                            }
+                                            else
+                                            {
+                                                    ?>
                                             <button type="submit" class="btn btn-primary">Buy it</button>
+                                            <?php
+                                            }
+
+
+                                            ?>
                                         </form>
                                       
                                
