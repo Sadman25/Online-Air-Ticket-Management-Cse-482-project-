@@ -1,12 +1,6 @@
 <?php 
     include('Connection.php');
     // $dest=$_POST['destination'];
-    
-   
-
-
-
-
     $dest = isset($_POST['destination']) ? $_POST['destination'] : "";
     $from= isset($_POST['from']) ? $_POST['from'] : "";
     // $query="select * from airlines where destination='$destination'";
@@ -15,7 +9,7 @@
     $count= mysqli_num_rows($result);
 
     session_start();
-
+    
     $_SESSION['trip_type'] =$_POST['trip_type'];
     $_SESSION['from']=$_POST['from'];
     $_SESSION['CIdate']=$_POST['CIdate'];

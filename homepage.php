@@ -1,8 +1,20 @@
 <?php 
      include('Connection.php');
     // $dest=$_POST['destination'];
-
-    
+    session_start();
+	$loggedIn = $_SESSION['loggedIn'];
+    if($loggedIn != 1)
+	{
+		echo '<script type="text/javascript"> alert ("Please sign in first")</script>';
+		echo "<script> location.href='login.html'; </script>";
+	}
+	else
+	{
+	$userID = $_SESSION['userID'];
+    $query3 = "SELECT * FROM users WHERE id = '".$userID."'";
+    $result=mysqli_query($conn,$query3);
+    $count= mysqli_num_rows($result);
+    }
     // // $query="select * from airlines where destination='$destination'";
     // $query = "SELECT * FROM airlines WHERE destination = '".$dest."'";  
     // $result=mysqli_query($conn,$query);
@@ -24,10 +36,8 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 
-    <script>
-
-
-    </script>
+    
+    
 </head>
 <body> 
     
@@ -47,6 +57,16 @@
                         <a class="nav-item nav-link" href="profile.html">Profile</a>
                         <a class="nav-item nav-link" href="#">Contacts</a>
                         <a class="nav-item nav-link" href="login.html">Log Out</a>
+                        <?php 
+                                            if($count > 0){
+                                                while($rows_count_tickets = mysqli_fetch_array($result)){
+
+                                        ?>
+                                        <h5><?php echo $rows_count_tickets['username'];?></h5>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                     </div>
                 </div>
             </nav>
@@ -105,16 +125,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-8">
                                     <div class="form-group">
                                         <span class="form-label">Check In</span>
-                                        <input class="form-control" name="CIdate" type="date" required>
+                                        <input id="CIdate" class="form-control" name="CIdate" type="date" required>
                                     </div>
                                 </div>
-                                <div id="hideco" class="col-sm-6">
+                                <div id="hideco" class="col-sm-8">
                                     <div class="form-group">
                                         <span class="form-label">Check out</span>
-                                        <input class="form-control" name="COdate" type="date" required>
+                                        <input class="form-control" name="COdate" type="date" >
                                     </div>
                                 </div>
                             </div>
@@ -145,56 +165,11 @@
                             </div>
                             <div class="form-btn">                                
                                 <!-- <button id="myBtn" type="submit" class="submit-btn">Check availability</button> -->
-                                <input id="myBtn" class="submit-btn" name="submit" type="submit" value="Check availability" >
+                                <input id="myBtn" class="submit-btn" type="submit" value="Check availability" disabled>
                                 <div class="form-text"><a href="#">Create an account</a> to book your tickets</div>
                                 <p>Already have an account?? <a href="#">Login Here</a></p>
                             </div>
-                            <div class="modal">
-
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h2>Modal Header</h2>
-                                    <span class="close">&times;</span>
-                                  
-                                  </div>
-                                  <div id="reserve" class="modal-body">
-                                        <?php 
-                                            if($count > 0){
-                                                while($rows_count_tickets = mysqli_fetch_array($result)){
-                                        ?>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                            <h3>Destination</h3>
-                                                <h5><?php echo $rows_count_tickets['destination'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                                <h3>From</h3>
-                                                <h5><?php echo $rows_count_tickets['from'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                            <h3>Time</h3>
-                                            <h5><?php echo $rows_count_tickets['flight_time'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                                <h3>Seat Available</h3>
-                                                <h5><?php echo $rows_count_tickets['total_seat'];?></h5>
-                                            </div>
-                                            <div style="display: inline-block;" class="col-md-2">
-                                                <h3>Fare</h3>
-                                                <h5><?php echo $rows_count_tickets['fare'];?></h5>
-                                            </div>
-                                        <?php
-                                                }
-                                            }
-                                        ?>
-                                    
-                                    </div>
-                                  <div class="modal-footer">
-                                    <!-- <h3>Modal Footer</h3> -->
-                                  </div>
-                                </div>
-                              
-                              </div>
+                           
                         </form>
                     
                     </div>
@@ -204,10 +179,36 @@
         </div>
     </div>
     <script>
-        
-    </script>
+$("#myInput").keyup(function(event) {
+  validateInputs();
+});
 
-    
+$("#myInput2").keyup(function(event) {
+  validateInputs();
+});
+
+$("#CIdate").keyup(function(event) {
+  validateInputs();
+});
+
+// $("#CO").keyup(function(event) {
+//   validateInputs();
+// });
+
+function validateInputs(){
+  var disableButton = false;
+
+  var val1 = $("#myInput").val();
+  var val2 = $("#myInput2").val();
+  var val3 = $("#CIdate").val();
+//   var val4 = $("#CO").val();
+
+  if(val1.length == 0 || val2.length == 0 || val3.length == 0)
+      disableButton = true;
+
+  $('#myBtn').attr('disabled', disableButton);
+}
+  </script>
     
 
 
