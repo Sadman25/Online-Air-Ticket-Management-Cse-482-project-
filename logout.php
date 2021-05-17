@@ -1,6 +1,7 @@
-<?php
+
+<?php 
 session_start();
-unset($_SESSION["id"]);
-unset($_SESSION["name"]);
-header("Location:login.php");
+$_SESSION["userID"] = "";
+session_destroy();
+header("Location: login.html");
 ?>
