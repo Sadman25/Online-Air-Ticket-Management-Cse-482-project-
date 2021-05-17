@@ -56,7 +56,7 @@
                         <a class="nav-item nav-link" href="homepage.html">Home </a>
                         <a class="nav-item nav-link" href="profile.html">Profile</a>
                         <a class="nav-item nav-link" href="#">Contacts</a>
-                        <a class="nav-item nav-link" href="login.html">Log Out</a>
+                        <a class="nav-item nav-link" href="logout.php">Log Out</a>
                         <?php 
                                             if($count > 0){
                                                 while($rows_count_tickets = mysqli_fetch_array($result)){
