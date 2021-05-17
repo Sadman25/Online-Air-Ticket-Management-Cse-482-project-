@@ -72,10 +72,15 @@
                             $selectquery = " select * from airlines WHERE id='$air_id' ";
                             $query = mysqli_query($conn, $selectquery);
                             while($res = mysqli_fetch_array($query)){
-                                ?>
+                                $fare=1;
+
+                               $fare1=$res['fare'];
+
+                               $fares=($adult* $fare1)+(($child*$fare1)/$fare) ;
+                               ?>
 
                             <td>
-                                <h3 style="font-size:20px;"> <?php echo $res['fare']; ?> tk</h3>
+                                <h3 style="font-size:20px;"> <?php echo $fares; ?> tk</h3>
                             </td>
                               
                           <?php
@@ -119,7 +124,7 @@
                                 ?>
 
                             <td>
-                                <h3 style="font-size:20px;"> <?php echo $res['fare']; ?> tk</h3>
+                                <h3 style="font-size:20px;"> <?php echo $fares; ?> tk</h3>
                             </td>
                               
                           <?php

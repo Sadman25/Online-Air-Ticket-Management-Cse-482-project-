@@ -32,7 +32,7 @@ CREATE TABLE `airlines` (
   `airlines_name` varchar(50) NOT NULL,
   `airlines_model` varchar(50) NOT NULL,
   `flight_time` varchar(50) NOT NULL,
-  `fare` varchar(10) NOT NULL,
+  `fare` int(10) NOT NULL,
   `total_seat` int(11) NOT NULL,
   `destination` varchar(50) NOT NULL,
   `depart` varchar(50) NOT NULL
@@ -43,8 +43,8 @@ CREATE TABLE `airlines` (
 --
 
 INSERT INTO `airlines` (`id`, `airlines_name`, `airlines_model`, `flight_time`, `fare`, `total_seat`, `destination`, `depart`) VALUES
-(1, 'Etihad Airways', 'EA-1234', '9:00pm-10:00pm', '3200 tk', 52, 'SPD', 'DAC'),
-(2, 'Regent Airways', 'RA-1234', '1:00pm-2:00pm', '3500 tk', 36, 'DAC', 'SPD');
+(1, 'Etihad Airways', 'EA-1234', '9:00pm-10:00pm', '3200', 52, 'SPD', 'DAC'),
+(2, 'Regent Airways', 'RA-1234', '1:00pm-2:00pm', '3500', 36, 'DAC', 'SPD');
 
 -- --------------------------------------------------------
 
