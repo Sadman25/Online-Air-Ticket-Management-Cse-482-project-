@@ -61,7 +61,9 @@ CREATE TABLE `reservation` (
   `adult` int(11) NOT NULL,
   `children` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `airlines_id` int(11) NOT NULL
+  `airlines_id` int(11) NOT NULL,
+  `checkin_time` varchar(100) NOT NULL,
+  `air_time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

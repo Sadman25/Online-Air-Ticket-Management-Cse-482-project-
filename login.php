@@ -104,4 +104,8 @@ if(isset($_POST['submit']))
 //   }
 // }
 // mysqli_close($conn);
+<<<<<<< HEAD
  ?>
+=======
+ ?>
+>>>>>>> 8aff1c086ddf9f2ff25093e0c10eb8ae53367c68

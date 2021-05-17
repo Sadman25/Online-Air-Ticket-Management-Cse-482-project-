@@ -1,19 +1,6 @@
 <?php
         include('Connection.php');
-// if(isset($_POST['submit'])){
-    // $trip_type =$_POST['trip_type'];
-    // $from=$_POST['from'];
-    // $CIdate=$_POST['CIdate'];
-    // $COdate=$_POST['COdate'];
-    // $adult_no=$_POST['adult_no'];
-    // $child_no=$_POST['child_no'];
-    //  $air_id=$rows_count_tickets['id'];
-    //     $query1="INSERT INTO temp_data (trip_type,CIdate,COdate,adult,child,air_id) VALUES 
-    //     ('{$trip_type}','{$CIdate}','{$COdate}','{$adult_no}','{$child_no}','{$air_id}');";
-
-    //     $performQuery=mysqli_query($conn, $query1);
-
-// }
+ 
   
 
     session_start();
@@ -22,6 +9,9 @@
     $froms=$_SESSION['from'];
     $CIdate=$_SESSION['CIdate'];
     $COdate=$_SESSION['COdate'];
+    $adult=$_SESSION['adult_no'];
+    $child=$_SESSION['child_no'];
+    $des=$_SESSION['destination'];
     
 
    
@@ -39,14 +29,7 @@
     
     <link type="text/css" rel="stylesheet" href="css/payment.css"/>
     <script src="js/moktadir.js"></script>
-    <script type="text/javascript">
-    function buttonclick() {
-       alert("")
-        document.getElementById("muButton").onclick = function () {
-        location.href = "https://www.youtube.com/watch?v=cAPEG6esIlE";
-    };
-    }
-    </script>
+    
     <title>Welcome</title>
 </head>
 
@@ -101,7 +84,7 @@
                                 ?>
 
                             <td>
-                                <h3 style="font-size:20px;">BDT <?php echo $res['fare']; ?></h3>
+                                <h3 style="font-size:20px;"> <?php echo $res['fare']; ?> tk</h3>
                             </td>
                               
                           <?php
@@ -116,7 +99,7 @@
                             <h3 style="font-size:20px;"> +Service Charge:</h3>
                         </td>
                         <td>
-                        <h3 style="font-size:20px;">BDT 0.0</h3>
+                        <h3 style="font-size:20px;"> 0.0 tk</h3>
                         </td>
                     </tr>
                     <tr>
@@ -124,7 +107,7 @@
                             <h3 style="font-size:20px;">+ Insurance Fee:</h3>
                         </td>
                         <td>
-                            <h3 style="font-size:20px;">BDT 0.0</h3>
+                            <h3 style="font-size:20px;"> 0.0 tk</h3>
                         </td>
                     </tr>
                     <tr>
@@ -132,7 +115,7 @@
                             <h3 style="font-size:20px;">- Discount:</h3>
                         </td>
                         <td>
-                            <h3 style="font-size:20px;">  BDT 0.0</h3>
+                            <h3 style="font-size:20px;"> 0.0 tk</h3>
                         </td>
                     </tr>
                     <tr>
@@ -155,7 +138,7 @@
                                 ?>
 
                             <td>
-                                <h3 style="font-size:20px;">BDT <?php echo $res['fare']; ?></h3>
+                                <h3 style="font-size:20px;"> <?php echo $res['fare']; ?> tk</h3>
                             </td>
                               
                           <?php
@@ -170,7 +153,7 @@
         <div class="col-lg-4" id="form">
             <div class="container-payment">
 
-            <form>
+            <form action="buyticket.php" method="POST">
                 <h1>Confirm Your Payment</h1>
                 <div class="first-row">
                     <div class="owner">
@@ -182,7 +165,7 @@
                     <div class="cvv">
                         <h3 style="font-size:20px;">CVV</h3>
                         <div class="input-field">
-                            <input type="password" id="cvcode" required="">
+                            <input type="text" id="cvcode" name="cvcode" required="">
                         </div>
                     </div>
                 </div>
@@ -229,8 +212,8 @@
                             <img src="images/pp.png" alt="">
                         </div>
                     </div>    
-
-                             <button id="muButton" type="submit" onclick="buttonclick()">Confirm</button>
+                             <input hidden name="air_id" value="<?php echo $air_id ?>">
+                             <input type="submit" name="submit" value="Confirm">
                         
                </div>
                </form>
@@ -251,4 +234,4 @@
 </body>
 
 </html>
-
+       

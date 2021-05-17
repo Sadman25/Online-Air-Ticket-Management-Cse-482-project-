@@ -1,9 +1,9 @@
 <?php 
      include('Connection.php');
-    // $dest=$_POST['destination'];
-    session_start();
+     session_start();
 	$loggedIn = $_SESSION['loggedIn'];
-    if($loggedIn != 1)
+
+	if($loggedIn != 1)
 	{
 		echo '<script type="text/javascript"> alert ("Please sign in first")</script>';
 		echo "<script> location.href='login.html'; </script>";
@@ -60,8 +60,8 @@
                         <?php 
                                             if($count > 0){
                                                 while($rows_count_tickets = mysqli_fetch_array($result)){
-
-                                        ?>
+                                                    ?>
+                                    
                                         <h5><?php echo $rows_count_tickets['username'];?></h5>
                                         <?php
                                                 }
