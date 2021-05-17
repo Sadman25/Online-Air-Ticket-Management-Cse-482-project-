@@ -44,20 +44,7 @@
         <div class="row" >
         <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" width="30" height="30" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="homepage.html">Home </a>
-                        <a class="nav-item nav-link" href="profile.html">Profile</a>
-                        <a class="nav-item nav-link" href="#">Contacts</a>
-                        <a class="nav-item nav-link" href="logout.php">Log Out</a>
-                        <?php 
+            <?php 
                                             if($count > 0){
                                                 while($rows_count_tickets = mysqli_fetch_array($result)){
                                                     ?>
@@ -67,6 +54,17 @@
                                                 }
                                             }
                                         ?>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="homepage.php">Home </a>
+                        <a class="nav-item nav-link" href="profile.php">Profile</a>
+                        <a class="nav-item nav-link" href="#">Contacts</a>
+                        <a class="nav-item nav-link" href="logout.php">Log Out</a>
+                        
                     </div>
                 </div>
             </nav>

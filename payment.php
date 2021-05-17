@@ -46,10 +46,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="homepage.html">Home </a>
-                        <a class="nav-item nav-link" href="profile.html">Profile</a>
+                        <a class="nav-item nav-link" href="homepage.php">Home </a>
+                        <a class="nav-item nav-link" href="profile.php">Profile</a>
                         <a class="nav-item nav-link" href="#">Contacts</a>
-                        <a class="nav-item nav-link" href="login.html">Log Out</a>
+                        <a class="nav-item nav-link" href="logout.php">Log Out</a>
                     </div>
                 </div>
             </nav>

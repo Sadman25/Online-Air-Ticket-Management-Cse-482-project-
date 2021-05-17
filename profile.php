@@ -1,3 +1,28 @@
+<?php 
+     include('Connection.php');
+     session_start();
+	$loggedIn = $_SESSION['loggedIn'];
+
+	if($loggedIn != 1)
+	{
+		echo '<script type="text/javascript"> alert ("Please sign in first")</script>';
+		echo "<script> location.href='login.html'; </script>";
+	}
+	else
+	{
+	$userID = $_SESSION['userID'];
+    $query3 = "SELECT * FROM users WHERE id = '".$userID."'";
+    $result=mysqli_query($conn,$query3);
+    $count= mysqli_num_rows($result);
+    }
+    // // $query="select * from airlines where destination='$destination'";
+    // $query = "SELECT * FROM airlines WHERE destination = '".$dest."'";  
+    // $result=mysqli_query($conn,$query);
+    // $count= mysqli_num_rows($result);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +40,16 @@
     <div class="row">
         <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" width="30" height="30" alt="">
-                </a>
+            ?php 
+                                            if($count > 0){
+                                                while($rows_count_tickets = mysqli_fetch_array($result)){
+                                                    ?>
+                                    
+                                        <h5><?php echo $rows_count_tickets['username'];?></h5>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
