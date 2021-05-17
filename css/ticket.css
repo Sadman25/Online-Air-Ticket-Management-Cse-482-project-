@@ -1,0 +1,102 @@
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/background.jpg');
+    /* background-image: url("../images/background.jpg"); */
+    color: white;
+    
+}
+
+.ticket{
+    width: 900px;
+    background-color: wheat;
+    margin: 80px 0px 80px 100px;
+    display: flex;
+    border: 1px solid;
+    height: 400px;
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .ticketheading{
+      width:400px;
+  }
+
+  .ticketno{
+      width: 400px;
+      color:green;
+      margin-left: 500px;
+      margin-top: 0px;
+      font-size: 30px;
+      font-family: "Lucida Console", "Courier New", monospace;
+  }
+
+  .item1 { grid-area: tname; }
+  .item2 { grid-area: tno; }
+  .item3 { grid-area: date; }
+  .item4 { grid-area: time; }
+  .item5 { grid-area: name; }
+  .item6 { grid-area: child; }
+  .item7 { grid-area: from; }
+  .item8 { grid-area: to; }
+  .item9 { grid-area: passenger;}
+  .item10 { grid-area: phone;} 
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'tname tname tname tno'
+      'date date time time'
+      'name name name phone'
+      'passenger passenger child child'
+      'from from to to';
+    
+  }
+
+  .item3{
+      color: green;
+      border-radius: 6px;
+      height: 50px;
+      margin-top: 40px;
+      font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .item4{
+    color: green;
+    border-radius: 6px;
+    height: 50px;
+    margin-top: 40px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.item5{
+    color: green;
+    border-radius: 6px;
+    height: 60px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.item6{
+    color: green;
+    border-radius: 6px;
+    height: 60px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.item7{
+    color: green;
+    border-radius: 6px;
+    height: 60px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.item8{
+    color: green;
+    border-radius: 6px;
+    height: 60px; 
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.item9{
+    color: green;
+    border-radius: 6px;
+    height: 60px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.item10{
+    color: green;
+    border-radius: 6px;
+    height: 60px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
