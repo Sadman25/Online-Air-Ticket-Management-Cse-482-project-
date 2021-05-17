@@ -1,5 +1,19 @@
 <?php 
      include('Connection.php');
+     session_start();
+	$loggedIn = $_SESSION['loggedIn'];
+
+	if($loggedIn != 1)
+	{
+		echo '<script type="text/javascript"> alert ("Please sign in first")</script>';
+		echo "<script> location.href='login.html'; </script>";
+	}
+	else
+	{
+	$userID = $_SESSION['userID'];
+    $query3 = "SELECT * FROM users WHERE id = '".$userID."'";
+    $result=mysqli_query($conn,$query3);
+    $count= mysqli_num_rows($result);
     // $dest=$_POST['destination'];
 
     
@@ -47,6 +61,18 @@
                         <a class="nav-item nav-link" href="profile.html">Profile</a>
                         <a class="nav-item nav-link" href="#">Contacts</a>
                         <a class="nav-item nav-link" href="login.html">Log Out</a>
+                        <?php 
+                                            if($count > 0){
+                                                while($rows_count_tickets = mysqli_fetch_array($result)){
+
+                                                }
+                                                
+                                        ?>
+                                        <h5><?php echo $rows_count_tickets['username'];?></h5>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                     </div>
                 </div>
             </nav>
